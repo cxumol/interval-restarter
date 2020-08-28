@@ -11,7 +11,7 @@ How to install
 run this in a terminal
 
 ```shell
-wget -qO- https://github.com/cxumol/interval-restarter/releases/download/v0.0.2/intrvl-r_0.0.2_linux_amd64.tar.gz | tar xzv
+wget -qO- https://github.com/cxumol/interval-restarter/releases/download/v0.0.2/intrvl-r_0.0.2_linux_amd64.tar.gz | tar xzv && chmod +x intrvl-r
 ```
 
 How to use
