@@ -8,7 +8,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"runtime"
+	//"runtime"
 	"sync"
   "gopkg.in/yaml.v2"
   "io/ioutil"
@@ -73,9 +73,10 @@ func getYmlFile(fname string) Cfg {
 func RunCMD(shell string, bashcmd string) {
 	// copy from https://github.com/kjk/go-cookbook/blob/master/advanced-exec/03-live-progress-and-capture-v3.go
 	cmd := exec.Command(shell, "-c", bashcmd)
-	if runtime.GOOS == "windows" {
+	// On windows you can just use PowerShell so that OS specification is unnecessary here
+	/*if runtime.GOOS == "windows" {
 		cmd = exec.Command(shell, "/c", bashcmd)
-	}
+	}*/
 
 	var stdoutBuf, stderrBuf bytes.Buffer
 	stdoutIn, _ := cmd.StdoutPipe()
