@@ -27,6 +27,7 @@ type Cfg struct {
 func main() {
 
   cfgPath := flag.String("c", "./cfg.yml", "configuration file path")
+  flag.Parse()
 
   cfg := getYmlFile(*cfgPath)
   log.Println("start by:", cfg.StartCMD)
@@ -59,7 +60,7 @@ func main() {
 }
 
 func getYmlFile(fname string) Cfg {
-	filename, _ := filepath.Abs(fname)
+  filename, _ := filepath.Abs(fname)
   yamlFile, err := ioutil.ReadFile(filename)
   if err != nil {
       panic(err)
