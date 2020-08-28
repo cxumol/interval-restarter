@@ -28,7 +28,7 @@ func main() {
 
   cfgPath := flag.String("c", "./cfg.yml", "configuration file path")
 
-  cfg := getYmlFile(cfgPath)
+  cfg := getYmlFile(*cfgPath)
   log.Println("start by:", cfg.StartCMD)
   log.Println("end by:", cfg.EndCMD)
   log.Println("interval:", cfg.Interval)
