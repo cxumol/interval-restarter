@@ -1,0 +1,4 @@
+start: ./bililive-go -i "https://www.douyu.com/123456" -o "/home/username/cloud_drive_mount" --debug  --native-flv-parser --interval=10
+end: pkill -SIGINT -f "bil.*?douyu.com/123456"
+interval: 20m
+shell: bash 
