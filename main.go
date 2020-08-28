@@ -70,6 +70,7 @@ func getYmlFile(fname string) Cfg {
 }
 
 func RunCMD(shell string, bashcmd string) {
+	// copy from https://github.com/kjk/go-cookbook/blob/master/advanced-exec/03-live-progress-and-capture-v3.go
 	cmd := exec.Command(shell, "-c", bashcmd)
 	if runtime.GOOS == "windows" {
 		cmd = exec.Command(shell, "/c", bashcmd)
