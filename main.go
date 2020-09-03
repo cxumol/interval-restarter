@@ -89,8 +89,9 @@ func RunCMD(shell string, bashcmd string) {
 	log.Println("[RUN CMD]", bashcmd)
 	if err != nil {
 		time.Sleep(1000* time.Millisecond)
-		RunCMD(shell, bashcmd)
-		log.Panicf("cmd.Start() failed with '%s', try to restart\n", err)
+		go RunCMD(shell, bashcmd)
+		log.Printf("cmd.Start() failed with '%s', try to restart\n", err)
+		return
 	}
 
 	var wg sync.WaitGroup
@@ -106,7 +107,10 @@ func RunCMD(shell string, bashcmd string) {
 
 	err = cmd.Wait()
 	if err != nil {
-		log.Fatalf("cmd.Run() failed with %s\n", err)
+		time.Sleep(1000* time.Millisecond)
+		go RunCMD(shell, bashcmd)
+		log.Printf("cmd.Start() failed with '%s', try to restart\n", err)
+		return
 	}
 	if errStdout != nil || errStderr != nil {
 		log.Fatal("failed to capture stdout or stderr\n")
