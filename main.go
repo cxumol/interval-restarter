@@ -51,7 +51,7 @@ func main() {
     log.Println("[RESTART]")
 
     RunCMD(cfg.Shell, killCMD)
-    time.Sleep(200* time.Millisecond)
+    time.Sleep(20* time.Millisecond)
     go RunCMD(cfg.Shell, startCMD) 
   }
 	
